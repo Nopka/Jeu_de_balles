@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Jeu de balles</title>
+    <link rel="stylesheet" media="screen" href="style.css" type="text/css" />
+    <script src="fonction.js"></script>
+</head>
+
+<body>
+    <div id="titre">
+        <h1>Le jeu de balles</h1>
+    </div>
+
+    <div id="accueil">
+        <button onclick="montrerEcranJeu()">JOUER</button>
+    </div>
+    <div id="EcranJeu" class="EcranJeu">
+        <div id="popup" class="popup">
+            <span id="btnClose" class="btnClose"><button id="buttonfermer" onclick="javascript:location.reload();">Quitter</button></span>
+            <div id="consigne">
+                <h2 id="titre">Consigne :</h2>
+                <p id="EcritureConsigne">
+
+                </p>
+            </div>
+            
+            <div id="ZoneJeu">
+                <br>
+                <center>
+                    <canvas id="myCanvas" width="1000" height="600" style="border:1px solid black;" onclick="verif()">
+                        Votre navigateur ne supporte pas canvas.
+                    </canvas>
+                </center>
+            </div>
+            <div id="Interface">
+                <button onclick="lancerPartie()">Lancer Partie</button>
+                <button onclick="rejouer()">Rejouer</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
