@@ -1,278 +1,310 @@
-function montrerEcranJeu() {
-    consigne = Math.floor(Math.random() * Math.floor(12));
-    document.getElementById('EcranJeu').style.display = 'block';
-    console.log(consigne);
-    if (consigne == 0) {
-        document.getElementById('EcritureConsigne').innerHTML = "Cliquez sur les balles de PETITE taille";
-        testConsigne = 1;
-    }
-    if (consigne == 1) {
-        document.getElementById('EcritureConsigne').innerText = "Cliquez sur les balles de taille MOYENNE";
-        testConsigne = 2;
-    }
-    if (consigne == 2) {
-        document.getElementById('EcritureConsigne').innerText = "Cliquez sur les balles de GRANDE taille";
-        testConsigne = 3;
-    }
-    if (consigne == 3) {
-        document.getElementById('EcritureConsigne').innerText = "Cliquez sur les PETITES balles ROUGES";
-        testConsigne = 4;
-    }
-    if (consigne == 4) {
-        document.getElementById('EcritureConsigne').innerText = "Cliquez sur les balles ROUGES de taille MOYENNE";
-        testConsigne = 5;
-    }
-    if (consigne == 5) {
-        document.getElementById('EcritureConsigne').innerText = "Cliquez sur les GRANDES balles ROUGES";
-        testConsigne = 6;
-    }
-    if (consigne == 6) {
-        document.getElementById('EcritureConsigne').innerText = "Cliquez sur les PETITES balles BLEUES";
-        testConsigne = 7;
-    }
-    if (consigne == 7) {
-        document.getElementById('EcritureConsigne').innerText = "Cliquez sur les balles BLEUES de taille MOYENNE";
-        testConsigne = 8;
-    }
-    if (consigne == 8) {
-        document.getElementById('EcritureConsigne').innerText = "Cliquez sur les GRANDES balles BLEUES";
-        testConsigne = 9;
-    }
-    if (consigne == 9) {
-        document.getElementById('EcritureConsigne').innerText = "Cliquez sur les PETITES balles VERTES";
-        testConsigne = 10;
-    }
-    if (consigne == 10) {
-        document.getElementById('EcritureConsigne').innerText = "Cliquez sur les balles VERTES de taille MOYENNE";
-        testConsigne = 11;
-    }
-    if (consigne == 11) {
-        document.getElementById('EcritureConsigne').innerText = "Cliquez sur les GRANDES balles VERTES";
-        testConsigne = 12;
-    }
-}
-
-function closepopup() {
-    document.getElementById('EcranJeu').style.display = 'none';
-    clearCanvas();
-    location.reload();
-}
-
-var testConsigne;
-var lanceur = 0;
-var posY = 0;
-var vitesseY = Math.floor(Math.random() * (10 - 3 + 1)) + 3;
-var vitesseYbis = Math.floor(Math.random() * (10 - 3 + 1)) + 3;
-var a;
-var nb_balles = 4;
-
-function lancerPartie() {
-    if (lanceur == 0) {
-        test();
-        lanceur = 1;
-    }
-}
-
-function test() {
-
-    var canvas = document.getElementById("myCanvas");
-    var context = canvas.getContext("2d");
-
-    function PositionX_Aléatoire(min, max) {
-        // générer un nombre aléatoire entre min et max qui sont entré en parametre
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-
-    function PositionY_Aléatoire(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-
-    function ballepetite(a, posY) {
-        context.beginPath();
-        context.arc(a, posY, 15, 0, Math.PI * 2);
-        context.fill();
-    }
-
-    function ballegrande(a, posY) {
-        context.beginPath();
-        context.arc(a, posY, 50, 0, 2 * Math.PI);
-        context.stroke();
-    }
-
-    function ballemoyenne(a, posY) {
-        context.beginPath();
-        context.arc(a, posY, 30, 0, 2 * Math.PI);
-        context.stroke();
-
-    }
-
-    function ballegranderouge(a, posY) {
-        context.fillStyle = '#FF0000';
-        context.beginPath();
-        context.arc(a, posY, 50, 0, 2 * Math.PI);
-        context.stroke();
-        context.fill();
-
-    }
-
-    function ballemoyennerouge(a, posY) {
-        context.fillStyle = "#FF0000";
-        context.beginPath();
-        context.arc(a, posY, 30, 0, 2 * Math.PI);
-        context.stroke();
-        context.fill();
-
-    }
-
-    function ballepetiterouge(a, posY) {
-        context.fillStyle = "#FF0000";
-        context.beginPath();
-        context.arc(a, posY, 15, 0, 2 * Math.PI);
-        context.stroke();
-        context.fill();
-
-    }
-
-
-    //balles bleues
-
-    function ballegrandebleue(a, posY) {
-        context.fillStyle = '#0040FF';
-        context.beginPath();
-        context.arc(a, posY, 50, 0, 2 * Math.PI);
-        context.stroke();
-        context.fill();
-
-    }
-
-    function ballemoyennebleue(a, posY) {
-        context.fillStyle = "#0040FF";
-        context.beginPath();
-        context.arc(a, posY, 30, 0, 2 * Math.PI);
-        context.stroke();
-        context.fill();
-
-    }
-
-    function ballepetitebleue(a, posY) {
-        context.fillStyle = "#0040FF";
-        context.beginPath();
-        context.arc(a, posY, 15, 0, 2 * Math.PI);
-        context.stroke();
-        context.fill();
-
-    }
-    // balles vertes
-
-    function ballegrandeverte(a, posY) {
-        context.fillStyle = '#04B404';
-        context.beginPath();
-        context.arc(a, posY, 50, 0, 2 * Math.PI);
-        context.stroke();
-        context.fill();
-
-    }
-
-    function ballemoyenneverte(a, posY) {
-        context.fillStyle = "#04B404";
-        context.beginPath();
-        context.arc(a, posY, 30, 0, 2 * Math.PI);
-        context.stroke();
-        context.fill();
-
-    }
-
-    function ballepetiteverte(a, posY) {
-        context.fillStyle = "#04B404";
-        context.beginPath();
-        context.arc(a, posY, 15, 0, 2 * Math.PI);
-        context.stroke();
-        context.fill();
-    }
-    var vitesse = Math.floor(Math.random() * (50 - 33 + 1)) + 33;
-    var myInterval = setInterval(animate, vitesse);
-    a = PositionX_Aléatoire(15, 985);
-    b = PositionX_Aléatoire(15, 985);
-    posY = PositionY_Aléatoire(-300, 0);
-    posYbis = PositionY_Aléatoire(-300, 0);
-    // testConsigne = 1;
-
-    function animate() {
-        context.clearRect(0, 0, canvas.width, canvas.height);
-
-        //Tracé de la balle
-        if (testConsigne == 1) {
-            // for(var i = 0; i < nb_balles; i++){
-            //     a = PositionX_Aléatoire(15,385);
-            //     ballepetite(a);
-            //     b = PositionX_Aléatoire(15,385);
-            //     ballepetiteverte(b);
-            // }
-            ballepetite(a, posY);
-            ballepetite(b, posYbis);
-        }
-        if (testConsigne == 2) {
-            ballemoyenne(a, posY);
-            ballemoyenne(b, posYbis);
-        }
-        if (testConsigne == 3) {
-            ballegrande(a, posY);
-            ballegrande(b, posYbis);
-        }
-        if (testConsigne == 4) {
-            ballepetiterouge(a, posY);
-            ballepetiterouge(b, posYbis);
-        }
-        if (testConsigne == 5) {
-            ballemoyennerouge(a, posY);
-            ballemoyennerouge(b, posYbis);
-        }
-        if (testConsigne == 6) {
-            ballegranderouge(a, posY);
-            ballegranderouge(b, posYbis);
-        }
-        if (testConsigne == 7) {
-            ballepetitebleue(a, posY);
-            ballepetitebleue(b, posYbis);
-        }
-        if (testConsigne == 8) {
-            ballemoyennebleue(a, posY);
-            ballemoyennebleue(b, posYbis);
-        }
-        if (testConsigne == 9) {
-            ballegrandebleue(a, posY);
-            ballegrandebleue(b, posYbis);
-        }
-        if (testConsigne == 10) {
-            ballepetiteverte(a, posY);
-            ballepetiteverte(b, posYbis);
-        }
-        if (testConsigne == 11) {
-            ballemoyenneverte(a, posY);
-            ballemoyenneverte(b, posYbis);
-        }
-        if (testConsigne == 12) {
-            ballegrandeverte(a, posY);
-            ballegrandeverte(b, posYbis);
-        }
-
-
-
-
-        posY += vitesseY;
-        posYbis += vitesseYbis;
-        // console.log("-------------",posY);
-
-    }
+function PopUp_ON() {
+     document.getElementById('EcranJeu').style.display = 'block';
+     consigne()
 
 }
 
-function rejouer() {
-    //clear les canvas !
-    myCanvas.width = myCanvas.width;
-    myCanvas.height = myCanvas.height;
-    posY = 0;
-    posYbis = 0;
-    clearInterval(myInterval);
-    test()
+function consigne() {
+     if (Taille_Consigne == "25") {
+          varTailleConsigne = "petite";
+     }
+     if (Taille_Consigne == "50") {
+          varTailleConsigne = "moyenne";
+     }
+     if (Taille_Consigne == "75") {
+          varTailleConsigne = "grande";
+     }
+     if (Couleur_Consigne == "blue") {
+          varCouleurConsigne = "bleues";
+     }
+     if (Couleur_Consigne == "red") {
+          varCouleurConsigne = "rouges";
+     }
+     if (Couleur_Consigne == "green") {
+          varCouleurConsigne = "vertes";
+     }
+     if (Couleur_Consigne == "black") {
+          varCouleurConsigne = "noires";
+     }
+     if (Couleur_Consigne == "orange") {
+          varCouleurConsigne = "jaunes";
+     }
+
+
+
+
+     document.getElementById('EcritureConsigne').innerHTML = "Cliquez sur les balles " + varCouleurConsigne + " de " + varTailleConsigne + " taille.";
 }
+
+function Aléatoire(min, max) {
+     // générer un nombre aléatoire entre min et max qui sont entré en parametre
+     return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+var Game_lancer = false
+
+function gestion_de_lancement() {
+     if (Game_lancer == false) {
+          dessin();
+          Game_lancer = true;
+
+     } else if (Game_lancer == true) {
+          alert("pas de spam ou je m'énerve");
+     }
+}
+
+function Couleur_Aléatoire() {
+     var couleur = ''
+     a = Math.floor(Math.random() * (5 - 1 + 1)) + 1;
+     if (a == 1) {
+          couleur = 'blue';
+     }
+     if (a == 2) {
+          couleur = 'red';
+     }
+     if (a == 3) {
+          couleur = 'green';
+     }
+     if (a == 4) {
+          couleur = 'black';
+     }
+     if (a == 5) {
+          couleur = 'orange';
+     }
+     return couleur;
+}
+
+function Taille_Aléatoire() {
+     var taille;
+
+     temp = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+     if (temp == 1) {
+          taille = 25;
+          return taille;
+
+     }
+
+     if (temp == 2) {
+          taille = 50;
+          return taille;
+
+     }
+     if (temp == 3) {
+          taille = 75;
+          return taille;
+
+     }
+}
+var couleur
+var taille
+var varCouleurConsigne = ""
+var varTailleConsigne = "";
+var Taille_Consigne = Taille_Aléatoire();
+var Couleur_Consigne = Couleur_Aléatoire();
+var Nouvelle_Couleur = "";
+var score = 0;
+var niveau = 1;
+var vie = 5;
+
+document.getElementById('niveau').innerHTML = niveau;
+console.log(Couleur_Consigne)
+console.log(Taille_Consigne)
+
+function dessin() {
+     var canvas = document.getElementById('myCanvas');
+     var ctx = canvas.getContext('2d');
+     var raf;
+     var compteur = 16;
+     ball = {
+          x: Aléatoire(10, 990),
+          y: Aléatoire(-300, 0),
+          vitesse: Aléatoire(3, 10),
+          radius: Taille_Aléatoire(),
+          couleur: Couleur_Aléatoire(),
+          draw: function () {
+               ctx.beginPath();
+               ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
+               ctx.closePath();
+               ctx.fillStyle = this.couleur;
+               ctx.fill();
+          }
+     }
+     ballbis = {
+          x: Aléatoire(10, 990),
+          y: Aléatoire(-300, 0),
+          vitesse: Aléatoire(3, 10),
+          radius: Taille_Aléatoire(),
+          couleur: Couleur_Aléatoire(),
+          draw: function () {
+               ctx.beginPath();
+               ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
+               ctx.closePath();
+               ctx.fillStyle = this.couleur;
+               ctx.fill();
+          }
+     }
+     ballbis2 = {
+          x: Aléatoire(10, 990),
+          y: Aléatoire(-300, 0),
+          vitesse: Aléatoire(3, 10),
+          radius: Taille_Aléatoire(),
+          couleur: Couleur_Aléatoire(),
+          draw: function () {
+               ctx.beginPath();
+               ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
+               ctx.closePath();
+               ctx.fillStyle = this.couleur;
+               ctx.fill();
+          }
+     }
+
+
+     function draw() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ball.draw();
+          ballbis.draw();
+          ballbis2.draw();
+          ball.y = ball.y + ball.vitesse;
+          ballbis.y = ballbis.y + ballbis.vitesse;
+          ballbis2.y = ballbis2.y + ballbis2.vitesse;
+          raf = window.requestAnimationFrame(draw);
+          if (ball.y > canvas.height) {
+               if (ball.couleur == Couleur_Consigne && ball.radius == Taille_Consigne){
+                    vie = vie -1
+                    console.log(vie)
+                    if (vie == 0){
+                         alert("Vous avez perdu")
+                    }
+               }
+               ball.y = Aléatoire(-300, 0);
+               ball.x = Aléatoire(10, 990);
+               ball.vitesse = Aléatoire(3, 10);
+               ball.couleur = Couleur_Aléatoire();
+               ball.radius = Taille_Aléatoire();
+          }
+          if (ballbis.y > canvas.height) {
+               if (ballbis.couleur == Couleur_Consigne && ballbis.radius == Taille_Consigne){
+                    vie = vie -1
+                    console.log(vie)
+                    if (vie == 0){
+                         alert("Vous avez perdu")
+                    }
+               }
+               ballbis.y = Aléatoire(-300, 0);
+               ballbis.x = Aléatoire(10, 990);
+               ballbis.vitesse = Aléatoire(3, 10);
+               ballbis.couleur = Couleur_Aléatoire();
+               ballbis.radius = Taille_Aléatoire();
+          }
+          if (ballbis2.y > canvas.height) {
+               if (ballbis2.couleur == Couleur_Consigne && ballbis2.radius == Taille_Consigne){
+                    vie = vie -1
+                    console.log(vie)
+                    if (vie == 0){
+                         alert("Vous avez perdu")
+                    }
+               }
+               ballbis2.y = Aléatoire(-300, 0);
+               ballbis2.x = Aléatoire(10, 990);
+               ballbis2.vitesse = Aléatoire(3, 10);
+               ballbis2.couleur = Couleur_Aléatoire();
+               ballbis2.radius = Taille_Aléatoire();
+               
+          }
+
+     }
+     setTimeout(draw, 16);
+
+     canvas.addEventListener('click', function (e) {
+               var top = canvas.offsetTop;
+               var left = canvas.offsetLeft;
+
+               if (e.pageX - left <= ball.x + ball.radius && e.pageX - left >= ball.x - ball.radius) {
+                    if (e.pageY - top <= ball.y + ball.radius && e.pageY - top >= ball.y - ball.radius) {
+                         ball.y = 0;
+                         ball.x = Math.floor((Math.random() * 500 - ball.radius) + 1 + ball.radius);
+                         if (ball.couleur == Couleur_Consigne && ball.radius == Taille_Consigne) {
+                              score += 1;
+                              document.getElementById('score').innerHTML = "Score =" + score;
+                              if (score == 5) {
+                                   score = 0
+                                   niveau += 1;
+                                   document.getElementById('niveau').innerHTML = niveau;
+                                   Couleur_Consigne = Couleur_Aléatoire()
+                                   Taille_Consigne = Taille_Aléatoire()
+                                   consigne()
+                                   if (niveau == 6) {
+                                        alert("Vous avez gagné !")
+                                   }
+                              }
+
+                              console.log(score);
+                         }
+
+                         ball.couleur = Couleur_Aléatoire()
+                         ball.radius = Taille_Aléatoire()
+                         ball.vitesse = Aléatoire(3, 10);
+
+                    }
+               }
+               if (e.pageX - left <= ballbis.x + ballbis.radius && e.pageX - left >= ballbis.x - ballbis.radius) {
+                    if (e.pageY - top <= ballbis.y + ballbis.radius && e.pageY - top >= ballbis.y - ballbis.radius) {
+                         ballbis.y = 0;
+                         ballbis.x = Math.floor((Math.random() * 500 - ballbis.radius) + 1 + ballbis.radius);
+                         if (ballbis.couleur == Couleur_Consigne && ballbis.radius == Taille_Consigne) {
+                              score += 1;
+                              document.getElementById('score').innerHTML = "Score =" + score;
+                              if (score == 5) {
+                                   score = 0
+                                   niveau += 1;
+                                   document.getElementById('niveau').innerHTML = niveau;
+                                   Couleur_Consigne = Couleur_Aléatoire()
+                                   Taille_Consigne = Taille_Aléatoire()
+                                   consigne()
+                                   if (niveau == 6) {
+                                        alert("Vous avez gagné !")
+                                   }
+                              }
+                              console.log(score);
+                         }
+
+                         ballbis.couleur = Couleur_Aléatoire()
+                         ballbis.radius = Taille_Aléatoire()
+                         ballbis.vitesse = Aléatoire(3, 10);
+
+                    }
+               }
+               if (e.pageX - left <= ballbis2.x + ballbis2.radius && e.pageX - left >= ballbis2.x - ballbis2.radius) {
+                    if (e.pageY - top <= ballbis2.y + ballbis2.radius && e.pageY - top >= ballbis2.y - ballbis2.radius) {
+                         ballbis2.y = 0;
+                         ballbis2.x = Math.floor((Math.random() * 500 - ballbis.radius) + 1 + ballbis.radius);
+                         if (ballbis2.couleur == Couleur_Consigne && ballbis2.radius == Taille_Consigne) {
+                              score += 1;
+                              document.getElementById('score').innerHTML = "Score =" + score;
+                              if (score == 5) {
+                                   score = 0
+                                   niveau += 1;
+                                   document.getElementById('niveau').innerHTML = niveau;
+                                   Couleur_Consigne = Couleur_Aléatoire()
+                                   Taille_Consigne = Taille_Aléatoire()
+                                   consigne()
+                                   if (niveau == 6) {
+                                        alert("Vous avez gagné !")
+                                   }
+                              }
+                              console.log(score);
+                         }
+
+
+                         ballbis2.couleur = Couleur_Aléatoire()
+                         ballbis2.radius = Taille_Aléatoire()
+                         ballbis2.vitesse = Aléatoire(3, 10);
+
+                    }
+               }
+
+               
+
+
+          })
+
+     }
