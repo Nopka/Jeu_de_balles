@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Jeu de balles</title>
+    <link rel="stylesheet" media="screen" href="style.css" type="text/css" />
+    <script src="fonction.js"></script>
+</head>
+
+<body>
+    <div id="titre">
+        <h1>Le jeu de balles</h1>
+    </div>
+
+    <div id="accueil">
+        <center>
+            <img src="jeux-avec-balle.jpg" />
+            <br>
+            <button onclick="PopUp_ON()">JOUER</button>
+        </center>
+
+    </div>
+    <div id="EcranJeu" class="EcranJeu">
+        <div id="popup" class="popup">
+            <span id="btnClose" class="btnClose"><button id="buttonfermer"
+                    onclick="javascript:location.reload();">Quitter</button></span>
+            <div id="consigne">
+                <h2 id="titre">Consigne :</h2>
+                <p id="EcritureConsigne">
+
+
+                </p>
+                <h2 id="Niveau">Niveau :</h2>
+                <p id="niveau">
+
+                </p>
+            </div>
+
+            <div id="ZoneJeu">
+                <br>
+                <center>
+                    <canvas id="myCanvas" width="1000" height="600" style="border:1px solid black;">
+                        Votre navigateur ne supporte pas la balise canvas.
+                    </canvas>
+                </center>
+            </div>
+            <div id="Interface">
+                <button onclick="gestion_de_lancement()">Lancer Partie</button>
+                <button id="Montrer_Bilan" onclick="Montrer_Ecran_Bilan()">Montrer le bilan</button>
+                <table>
+                    <td>
+                        <p id="vie"> </p>
+                    </td>
+                    <td>
+                        <p id="score"> </p>
+                    </td>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div id="bilan" class="bilan">
+        <div id="popup" class="popup">
+            <span id="btnClose" class="btnClose"><button id="buttonfermer"
+                    onclick="javascript:location.reload();">Quitter</button></span>
+            <center>
+                <h1> Bilan de la partie </h1>
+            </center>
+            <div id="Zone_de_bilan">
+                <p id="recap">
+
+                </p>
+            </div>
+            <div id="boutonAccueil">
+                <button onclick="Retour_Acceuil()">Accueil</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
